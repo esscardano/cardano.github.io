@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Becoming a Web Developer – First steps. 
-date: 2017--02-16
+date: 2017-02-16
 author: a.coetzee
 categories: cardano javascript css bootstrap 
 description: Taking the first steps towards moving from desktop development to web development
