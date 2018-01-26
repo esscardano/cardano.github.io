@@ -1,7 +1,7 @@
 ---
 layout: post
 title: GraphQL API Driven Design
-date: 2017--02-08
+date: 2017-02-08
 author: a.johnston
 categories: cardano graphql mocking api
 description: Using API driven design with GraphQL to create mock data for a schema that is shared with the real data for a self documenting API.
