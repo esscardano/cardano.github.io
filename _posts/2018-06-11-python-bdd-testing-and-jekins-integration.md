@@ -169,9 +169,9 @@ But integration poses three problems:
 * URL naming does not work the same, i.e., in your local machine the base URL for a NiFi flow may be "http://some_url" and "http://some_url_in_jenkins" in Jenkins. Having a more general view on this, things may change in case we have development, pre-production and production environments.
 ###Dependencies download
 The "setup.py" file must contain the list of dependencies in the install_requires parameter.
-
-from setuptools import setup, find_packages
 ```python
+from setuptools import setup, find_packages
+
 setup(
     name = "ndf-fx-rate-curves",
     version = "1.0",
@@ -182,7 +182,11 @@ setup(
     install_requires = ["behave", "requests"]
 )
 ```
+![alt text](../assets/images/post-images/2018_06_11_python_bdd_005.png "PyCharm Gherkin plugin")
 
+To run this you should setup how to run "setup.py". Pay attention to the "install" text in the "Parameters:" textbox.
+
+![alt text](../assets/images/post-images/2018_06_11_python_bdd_006.png "PyCharm Gherkin plugin")
 ###Writing permissions
 This is solved by adding the "--user" switch. It writes to the user folder.
 ```groovy
