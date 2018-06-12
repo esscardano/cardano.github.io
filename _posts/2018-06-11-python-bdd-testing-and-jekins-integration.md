@@ -14,6 +14,7 @@ This tutorial will explain how to run implement BDD with Python and Behave. Also
 Behave is a behavior driven development framework for Python. It uses Gherkin, a domain specific language that is business readable. This language lets you describe software's behaviour without detailing how that behaviour is implemented. For those with a Javascript background Gherkin is also used by Cucumber.
 
 ##Tool support
+###PyCharm Gherkin plugin
 PyCharm has a "Gherkin" plugin that supports editing .feature files.
 
 ![alt text](../assets/images/post-images/2018_06_11_python_bdd_001.png "PyCharm Gherkin plugin") 
@@ -25,7 +26,44 @@ It provides .feature files with a specific icon in the project explorer.
 It also provides syntax coloring for them.
 
 ![alt text](../assets/images/post-images/2018_06_11_python_bdd_003.png "PyCharm Gherkin plugin")
+###Behave scaffolding
+The paid version of PyCharm provides scaffolding of the unimplemented steps in your feature files. A workaround is possible with the Community Edition.
 
+Go to "Edit configurations...", add a new one for main.py.
+
+![alt text](../assets/images/post-images/2018_06_11_python_bdd_007.png "PyCharm Gherkin plugin")
+
+Name it "snippets" and in parameters add the "--snippets" switch.
+
+![alt text](../assets/images/post-images/2018_06_11_python_bdd_008.png "PyCharm Gherkin plugin")
+
+When you run this the output will provide for you the scaffolding for the unimplemented steps in your features files.
+
+As an example, we create a test.feature file that has no corresponding test.py file implementing the steps.
+```gherkin
+Feature: The day must be sunny
+
+  Scenario: Force the sun to shine
+    Given a cloudy day
+    When we sing to the sun
+    Then the sun comes out and shines
+```    
+Then we run the snippets configuration, after the output corresponding running the .feature files that have a matching .py file, we get the following output:
+```commandline
+You can implement step definitions for undefined steps with these snippets:
+
+@given(u'a cloudy day')
+def step_impl(context):
+ raise NotImplementedError(u'STEP: Given a cloudy day')
+
+@when(u'we sing to the sun')
+def step_impl(context):
+ raise NotImplementedError(u'STEP: When we sing to the sun')
+
+@then(u'the sun comes out and shines')
+def step_impl(context):
+ raise NotImplementedError(u'STEP: Then the sun comes out and shines')
+```
 ##Project struture
 This is the general layout of the project. In the root we have:
 
