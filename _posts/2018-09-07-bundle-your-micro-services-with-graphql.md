@@ -6,7 +6,7 @@ author: r.lopes
 categories: graphql rest microservices javascript
 description: Aggregating your REST micro-services with a graphQL API
 ---
-At Cardano, we have moved towards a micro-service architecture for the data flowing in our organization. REST Micro-services are in charge of fetching specific data from our myriad of systems for trades, financial instruments or even static reference data. Micro-services like these use other individual micro-services when calculations or logic are required for valuation, transaction costs, etc. This gives us a huge flexibility when building up new applications. We just extend, add or hook up existing micro-services.
+At Cardano, we have moved towards a micro-service architecture for the data flowing in our organization. REST micro-services are in charge of fetching specific data from our myriad of systems for trades, financial instruments or even static reference data. Micro-services like these use other individual micro-services when calculations or logic are required for valuation, transaction costs, etc. This gives us a huge flexibility when building up new applications. We just extend, add or hook up existing micro-services.
 
 With this architecture in place, a crucial challenge emerged: how do we aggregate and distribute data from these micro-services to our consumers? 
 We identified a key set of requirements which are important for us:
