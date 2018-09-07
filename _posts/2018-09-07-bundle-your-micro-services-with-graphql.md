@@ -25,10 +25,10 @@ To distribute a certain entity whithin our organization we want a flexible API t
 ```javascript
 events(date: "2088-08-08") {
   eventType
-	transactionIdentifier
+  transactionIdentifier
   tradedNotional           
   tradeTime
-	instrumentIdentifier
+  instrumentIdentifier
   instrument {
     settlementDate
     fixingDate
@@ -38,7 +38,7 @@ events(date: "2088-08-08") {
 
 events(date: "2088-08-08") {
   eventType
-	transactionIdentifier
+  transactionIdentifier
   tradedNotional           
   tradeTime
   orderidentifier
