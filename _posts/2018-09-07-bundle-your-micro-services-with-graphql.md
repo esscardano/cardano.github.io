@@ -22,7 +22,7 @@ If you are new to GraphQL, please read more about it [here](https://graphql.org/
 
 To distribute a certain entity whithin our organization we want a flexible API that can handle multiple use cases. A GraphQL API allows you to query an entity by asking which fields you want from it and only get those fields back in a DTO. Imagine the following two different queries on the same event entity (GraphQL uses JSON for its queries)
 
-```json
+```javascript
 events(date: "2088-08-08") {
   eventType
 	transactionIdentifier
