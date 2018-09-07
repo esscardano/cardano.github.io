@@ -23,7 +23,7 @@ If you are new to GraphQL, please read more about it [here](https://graphql.org/
 To distribute a certain entity whithin our organization we want a flexible API that can handle multiple use cases. A GraphQL API allows you to query an entity by asking which fields you want from it and only get those fields back in a DTO. Imagine the following two different queries on the same event entity (GraphQL uses JSON for its queries)
 
 ```json
-events(date: "2088-08-08" {
+events(date: "2088-08-08") {
   eventType
 	transactionIdentifier
   tradedNotional           
@@ -34,9 +34,9 @@ events(date: "2088-08-08" {
     fixingDate
     instrumentTypeName
   }
- }
+}
 
-events(date: "2088-08-08" {
+events(date: "2088-08-08") {
   eventType
 	transactionIdentifier
   tradedNotional           
@@ -48,7 +48,6 @@ events(date: "2088-08-08" {
     targetExecutionDate
     targetFixingDate
   }          
-}
 }
 ```
 On both cases, we are interested in events that happened on a date and in a set of common properties. However, in one use case the consumer asks graphql for a set of properties related to the instrument and in the other case another consumer asks for a set of properties related to the order. The GraphQL API returns only the requested data in JSON. 
