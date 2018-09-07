@@ -10,9 +10,9 @@ At Cardano, we have moved towards a micro-service architecture for the data flow
 
 With this architecture in place, a crucial challenge emerged: how do we aggregate and distribute data from these micro-services to our consumers? 
 We identified a key set of requirements which are important for us:
-	* how do we make the aggregation be a standard, i.e. a single view of the world whithin our organization?
-	* how can that standard still be flexible enough to be consumed by different use cases, e.g. data lake ingestion, Python scripts done by analysts, PowerBI reports, different operational tools?
-	* how do we keep it performing, i.e. avoid over fetching more than what each consumer requires?
+  * how do we make the aggregation be a standard, i.e. a single view of the world whithin our organization?
+  * how can that standard still be flexible enough to be consumed by different use cases, e.g. data lake ingestion, Python scripts done by analysts, PowerBI reports, different operational tools?
+  * how do we keep it performing, i.e. avoid over fetching more than what each consumer requires?
   * how do we keep it low maintenance and stable?
 
 The answer was graphQL - it's pretty cool! The first two points above were covered: this api design pattern gives us a schema, i.e. a standard interface for an API where consumers query and receive only what they need. Our journey was about figuring out if we could  answer the last two questions.
