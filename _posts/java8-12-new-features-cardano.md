@@ -8,7 +8,7 @@ description: Java 8,9,10,11 & 12 new features
 ---
 
 
-<html><head></head><body><h1><span style="color: #ff0000;">Java 8-12 new features</span></h1>
+<h1><span style="color: #ff0000;">Java 8-12 new features</span></h1>
 <p><span style="color: #ff0000;">In Java 8 big mayor changes where introduced to Java. This is a review of the main new features from Java 8 to 12.</span></p>
 <p>&nbsp;</p>
 <table>
@@ -492,4 +492,4 @@ public class mybenchmark {
 @Benchmark
 public void testMethod() {}
 }
-</pre></body></html>
+</pre>
