@@ -8,7 +8,7 @@ description: Java 8,9,10,11 & 12 new features
 ---
 
 
-<h1><span style="color: #ff0000;">Java 8-12 new features</span></h1>
+<html><head></head><body><h1><span style="color: #ff0000;">Java 8-12 new features</span></h1>
 <p><span style="color: #ff0000;">In Java 8 big mayor changes where introduced to Java. This is a review of the main new features from Java 8 to 12.</span></p>
 <p>&nbsp;</p>
 <table>
@@ -412,8 +412,7 @@ response.join(); // waits for the completable future to be completed
 <h2><span style="text-decoration: underline;">Java 11</span></h2>
 <h3 id="j111">Scripting</h3>
 <p>Java 11 can be executed as script directly in the OS.</p>
-<p><code><code></code></code></p>
-<pre>// With the shebang we can execute scripts directly in command line:
+<pre><code>// With the shebang we can execute scripts directly in command line:
 ./listfiles
 
 #!/usr/bin/java --source 11
@@ -424,7 +423,7 @@ public class ListFiles {
 		Files.walk(Paths.get(args[0])).forEach(System.out::println);
 	}
 }
-</pre>
+</code></pre>
 <h3 id="j112">Unmodifiable Collections</h3>
 <p>Java 11 changes from inmutable to unmodifiable because although the object itself is inmutable, the objects contained by the unmodifiable collection can be mutable (e.g. UnmodifiableList of Person -mutable-).&nbsp;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html#unmodifiable">https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html#unmodifiable</a></p>
 <h3 id="j113">Annotations in "var"</h3>
@@ -441,7 +440,7 @@ public class ListFiles {
 strings.stream().filter(Predicate.not(String::isBlank))).forEach(...)
 Optional.isEmpty() -&gt; true if empty object
 </code></pre>
-<h2 style="text-decoration: underline;">Java 12</h4>
+<h2 style="text-decoration: underline;">Java 12</h2>
 <h3 id="j121">String and compact numbers</h3>
 <pre><code>// New String methods
 "hello".indent(2) -&gt; "  hello\n"
@@ -472,18 +471,16 @@ String monthName = switch(monthNumber) {
 };
 </code></pre>
 <h3 id="j122">Switch Expressions</h3>
-<p><code><code></code></code></p>
-<pre>Switch expressions
+<pre><code>Switch expressions
 
 String monthName = switch(monthNumber) {
 	case 1 -&gt; monthName = "January";
 	case 2,3 -&gt; {String month = "February"; break monnth;}
 	default -&gt; monthName = "Unknown";
 };
-</pre>
+</code></pre>
 <h3 id="j123">Micro-benchmarking suite with JMH</h3>
-<p><code><code></code></code></p>
-<pre>@Benchmarkmode(Mode.AverageTime)
+<pre><code>@Benchmarkmode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @State(Scope.Benchmark)
 @Fork(1) //number of JVM forked
@@ -492,4 +489,4 @@ public class mybenchmark {
 @Benchmark
 public void testMethod() {}
 }
-</pre>
+</pre></code></body></html>
