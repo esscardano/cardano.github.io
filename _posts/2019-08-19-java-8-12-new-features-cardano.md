@@ -7,7 +7,7 @@ categories: java
 description: Java 8,9,10,11 & 12 new features
 ---
 
-<h2>In Java 8 major changes where introduced to Java. This is a review of the main new features from Java 8 to 12.</h2>
+<h2>In Java 8 major changes where introduced to Java. This is a review of the main new features from Java 8 to 13 remarking the practical uses of the language</h2>
 <p>&nbsp;</p>
 <table>
 <tbody>
@@ -15,7 +15,7 @@ description: Java 8,9,10,11 & 12 new features
 <td style="width: 250px; height: 221.5px;" valign="top">
 <h2>Java 8</h2>
 <ul>
-<li><a href="#interfaces">Interaces</a></li>
+<li><a href="#interfaces">Interfaces</a></li>
 <li><a href="#functionalprogramming">Functional programming</a></li>
 <li><a href="#optional">Optional</a></li>
 <li><a href="#dateapi">New Date API</a></li>
@@ -63,6 +63,38 @@ description: Java 8,9,10,11 & 12 new features
 <li><a href="#j122">Switch expressions</a></li>
 <li><a href="#j123">Micro-benchmarking suite with JMH</a></li>
 <li><a href="https://blog.idrsolutions.com/2019/03/java-12s-jvm-constants-api-explained-in-5-minutes/">JVM Constants API</a></li>
+</ul>
+</td>
+</tr>
+<tr style="height: 221.5px;">
+<td style="width: 500px; height: 221.5px;" valign="top">
+<h2>Java 13</h2>
+<ul>
+<li><a href="#j131"></a>Text Blocks (Preview)</li>
+<li><a href="#j132"></a>Switch Expressions (Preview)</li>
+<li>Reimplement the Legacy Socket API</li>
+<li>ZGC: Uncommit Unused Memory</li>
+<li>Dynamic CDS Archives</li>
+</ul>
+<td style="width: 500px; height: 221.5px;" valign="top">
+<h2>Java 14</h2>
+<ul>
+<li><a href="#j"></a></li>
+</ul>
+<td style="width: 500px; height: 221.5px;" valign="top">
+<h2>Java 15</h2>
+<ul>
+<li><a href="#j"></a></li>
+</ul>
+<td style="width: 500px; height: 221.5px;" valign="top">
+<h2>Java 16</h2>
+<ul>
+<li><a href="#j"></a></li>
+</ul>
+<td style="width: 500px; height: 221.5px;" valign="top">
+<h2>Java 17</h2>
+<ul>
+<li><a href="#j"></a></li>
 </ul>
 </td>
 </tr>
@@ -487,4 +519,63 @@ public class mybenchmark {
 @Benchmark
 public void testMethod() {}
 }
-</pre></code></body></html>
+</pre></code>
+
+<h2><span style="text-decoration: underline;">Java 13</span></h2>
+<h3 id="j131">Text Blocks (Preview)</h3>
+<p>Multiline text definition similar to Python using """..."""</p>
+<pre><code>
+String html = "<html>\n" +
+    "   <body>\n" +
+    "      <p class=\"text\">Hello, Escapes</p>\n" +
+    "   </body>\n" +
+    "</html>\n";
+
+//In Java 13 also can be defined as:
+String html = """
+  <html>
+      <body>
+          <p class="text">Hello, Text Blocks</p>
+      </body>
+  </html>""";
+</code></pre>
+
+<p>Auxiliary methods in Strings (preview in Java 13 & 14 and promoted to full feature in Java 15)</p>
+<p>String::stripIndent</p>
+<p>String::translateEscapes</p>
+<p>String::formatted  ->  In java 13 now is possible "Value: %s".formatted(value) that is equivalent to String.format("Value: %s", value)</p>
+
+<h3 id="j132">Switch Expressions (Preview)</h3>
+<p>Java 12 introduced returning a value in the Switch expressions & Java 13 extends this feature allowing blocks and using yield to return the values</p>
+<pre><code>
+// Java 12
+String numericString = switch(integer) {
+   case 0 -> "zero";
+   case 1, 3 -> "odd";
+   default -> "N/A";
+};
+
+//In Java 13
+String numericString = switch(integer) {
+   case 0 -> {
+       String value = calculateZero();
+       yield value;
+   } ;
+   case 1, 3 -> {
+       String value = calculateOdd();
+       yield value;
+   };
+   default -> {
+       String value = calculateDefault();
+       yield value;
+   };
+};
+
+</code></pre>
+
+
+
+
+
+
+</body></html>
