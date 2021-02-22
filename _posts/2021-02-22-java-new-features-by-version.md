@@ -106,12 +106,18 @@ description: Java 8 to 17 new features
 <td style="width: 500px; height: 221.5px;" valign="top">
 <h2>Java 16</h2>
 <ul>
-<li><a href="#j">TBD</a></li>
+<li>Vector API (Incubator)</li>
+<li>Enable C++14 Language Features</li>
+<li>Migrate from Mercurial to Git</li>
+<li>ZGC: Concurrent Thread-Stack Processing</li>
+<li>Alpine Linux Port</li>
+<li>Elastic Metaspace</li>
+<li>Windows/AArch64 Port</li>
 </ul>
 <td style="width: 500px; height: 221.5px;" valign="top">
-<h2>Java 17</h2>
+<h2>Java 17 (TBD)</h2>
 <ul>
-<li><a href="#j">TBD</a></li>
+<li><a href="#j171">Enhanced Pseudo-Random Number Generators</a></li>
 </ul>
 </td>
 </tr>
