@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Java [8..12] new features
+title: Java [8..17] new features
 date: 2019-08-14
 author: e.caceres
 categories: java
-description: Java 8,9,10,11 & 12 new features
+description: Java 8 to 17 new features
 ---
 
-<h2>In Java 8 major changes where introduced to Java. This is a review of the main new features from Java 8 to 12.</h2>
+<h2>In Java 8 major changes where introduced to Java. This is a review of the main new features from Java 8 to 17 focusing in the practical uses of the language</h2>
 <p>&nbsp;</p>
 <table>
 <tbody>
@@ -15,7 +15,7 @@ description: Java 8,9,10,11 & 12 new features
 <td style="width: 250px; height: 221.5px;" valign="top">
 <h2>Java 8</h2>
 <ul>
-<li><a href="#interfaces">Interaces</a></li>
+<li><a href="#interfaces">Interfaces</a></li>
 <li><a href="#functionalprogramming">Functional programming</a></li>
 <li><a href="#optional">Optional</a></li>
 <li><a href="#dateapi">New Date API</a></li>
@@ -63,6 +63,61 @@ description: Java 8,9,10,11 & 12 new features
 <li><a href="#j122">Switch expressions</a></li>
 <li><a href="#j123">Micro-benchmarking suite with JMH</a></li>
 <li><a href="https://blog.idrsolutions.com/2019/03/java-12s-jvm-constants-api-explained-in-5-minutes/">JVM Constants API</a></li>
+</ul>
+</td>
+</tr>
+<tr style="height: 221.5px;">
+<td style="width: 500px; height: 221.5px;" valign="top">
+<h2>Java 13</h2>
+<ul>
+<li><a href="#j131">Text Blocks (Preview)</a></li>
+<li><a href="#j132">Switch Expressions (Preview)</a></li>
+<li>Reimplement the Legacy Socket API</li>
+<li>ZGC: Uncommit Unused Memory</li>
+<li>Dynamic CDS Archives</li>
+</ul>
+<td style="width: 500px; height: 221.5px;" valign="top">
+<h2>Java 14</h2>
+<ul>
+<li><a href="#j141">Records (Preview)</a></li>
+<li><a href="#j142">Pattern Matching for instanceof (Preview)</a></li>
+<li><a href="#j143">Helpful NullPointerExceptions</a></li>
+<li><a href="#j131">Text Blocks (Second Preview)</a></li>
+<li><a href="#j132">Switch expressions (Second Preview)</a></li>
+<li>Improvements of the Garbage Collector (ZGC on macOs/Windows)</li>
+<li>Foreign-Memory Access API (Incubator)</li>
+<li>Non-Volatile Mapped Byte Buffers</li>
+<li>JFR Event Streaming</li>
+
+</ul>
+<td style="width: 500px; height: 221.5px;" valign="top">
+<h2>Java 15</h2>
+<ul>
+<li><a href="#j151">Sealed Classes (Preview)</a></li>
+<li><a href="https://jfeatures.com/blog/HiddenClass#:~:text=Classes%20that%20cannot%20be%20used,linked%20against%20by%20other%20classes">Hidden Classes</a></li>
+<li><a href="#j131">Text Blocks (final)</a></li>
+<li><a href="#j141">Records (Second Preview)</a></li>
+<li><a href="#j142">Pattern Matching for instanceof (Second Preview)</a></li>
+<li>Edwards-Curve Digital Signature Algorithm (EdDSA)</li>
+<li>ZGC & Shenandoah Garbage Collector</li>
+<li>Foreign-Memory Access API (Second Incubator)</li>
+<li>Deprecation of some features with no impact to the programmer</li>
+</ul>
+<td style="width: 500px; height: 221.5px;" valign="top">
+<h2>Java 16</h2>
+<ul>
+<li>Vector API (Incubator)</li>
+<li>Enable C++14 Language Features</li>
+<li>Migrate from Mercurial to Git</li>
+<li>ZGC: Concurrent Thread-Stack Processing</li>
+<li>Alpine Linux Port</li>
+<li>Elastic Metaspace</li>
+<li>Windows/AArch64 Port</li>
+</ul>
+<td style="width: 500px; height: 221.5px;" valign="top">
+<h2>Java 17 (TBD)</h2>
+<ul>
+<li><a href="#j171">Enhanced Pseudo-Random Number Generators</a></li>
 </ul>
 </td>
 </tr>
@@ -487,4 +542,173 @@ public class mybenchmark {
 @Benchmark
 public void testMethod() {}
 }
-</pre></code></body></html>
+</pre></code>
+
+<h2><span style="text-decoration: underline;">Java 13</span></h2>
+<h3 id="j131">Text Blocks (Preview)</h3>
+<p>Multiline text definition similar to Python using """..."""</p>
+<pre><code>
+String html = "<html>\n" +
+    "   <body>\n" +
+    "      <p class=\"text\">Hello, Escapes</p>\n" +
+    "   </body>\n" +
+    "</html>\n";
+
+//In Java 13 also can be defined as:
+String html = """
+  <html>
+      <body>
+          <p class="text">Hello, Text Blocks</p>
+      </body>
+  </html>""";
+</code></pre>
+
+<p>Auxiliary methods in Strings (preview in Java 13 & 14 and promoted to full feature in Java 15)</p>
+<p>String::stripIndent</p>
+<p>String::translateEscapes</p>
+<p>String::formatted  ->  In java 13 now is possible "Value: %s".formatted(value) that is equivalent to String.format("Value: %s", value)</p>
+
+<h3 id="j132">Switch Expressions (Preview)</h3>
+<p>Java 12 introduced returning a value in the Switch expressions & Java 13 extends this feature allowing blocks and using yield to return the values</p>
+<pre><code>
+// Java 12
+String numericString = switch(integer) {
+   case 0 -> "zero";
+   case 1, 3 -> "odd";
+   default -> "N/A";
+};
+
+//In Java 13
+String numericString = switch(integer) {
+   case 0 -> {
+       String value = calculateZero();
+       yield value;
+   } ;
+   case 1, 3 -> {
+       String value = calculateOdd();
+       yield value;
+   };
+   default -> {
+       String value = calculateDefault();
+       yield value;
+   };
+};
+
+</code></pre>
+
+<h2><span style="text-decoration: underline;">Java 14</span></h2>
+<h3 id="j141">Records (Preview)</h3>
+<p>This is a very powerful feature added to the language. It is a simplified way to define a classical POJO. It adds:Private fields for each variable defined, a constructor, getters and setters, equals and hashCode & toString  methods</p>
+<p>Constraints: Records can't extend any other class. Can't declare more fields than the set in the description (any other has to be declared as static). Records are final and can't be abstract. Componets of a Record are final and then inmutable</p>
+<p>For reflection the following methods are added to class Class: RecordComponent[], getRecordComponents(), isRecord()</p>
+
+
+<pre><code>
+// Before
+public class PhoneNumber {
+
+    private Integer lineNumber;
+    private Integer prefix;
+    private Integer areaCode;
+
+    public Integer getLineNumber() {
+        return lineNumber;
+    }
+
+    public Integer getPrefix() {
+        return prefix;
+    }
+
+    public Integer getAreaCode() {
+        return areaCode;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null)
+            return false;
+        if (getClass() != o.getClass())
+            return false;
+
+        PhoneNumber that = (PhoneNumber) o;
+        return super.equals(that)
+            && Objects.equals(this.lineNumber, that.lineNumber)
+            && Objects.equals(this.prefix, that.prefix)
+            && Objects.equals(this.areaCode, that.areaCode);
+    }
+}
+
+// Now AWESOME simplification!
+public record PhoneNumber(Integer lineNumber, Integer prefix, Integer areaCode) {
+}
+</code></pre>
+
+<h3 id="j142">Pattern Matching for instanceof (Preview)</h3>
+<p>Now an object can be defined in the same sentence than instance of without casting it</p>
+
+<pre><code>
+// Before the object had to be cast
+if (obj instanceof String) {
+    String s = (String) obj;
+    // use s
+}
+// Now the object can be defined in the same sentence
+if (obj instanceof String s) {
+    // use s
+}
+</code></pre>
+
+<h3 id="j143">Helpful NullPointerExceptions</h3>
+<p>Before Java indicates just the line where the NullPointerExceptions was produced. Now the exceptions indicates also which part of the line produced the NullPointerException</p>
+
+<pre><code>
+a.b.c.i = 99;
+a[i][j][k] = 99;
+a.i = b.j;
+x().y().i = 99;
+
+// Output
+Exception in thread "main" java.lang.NullPointerException:
+       Cannot assign field "i" because "a" is null
+   at Prog.main(Prog.java:5)
+
+Exception in thread "main" java.lang.NullPointerException:
+       Cannot read field "c" because "a.b" is null
+   at Prog.main(Prog.java:5)
+
+Exception in thread "main" java.lang.NullPointerException:
+      Cannot load from object array because "a[i][j]" is null
+   at Prog.main(Prog.java:5)
+
+Exception in thread "main" java.lang.NullPointerException:
+       Cannot read field "j" because "b" is null
+   at Prog.main(Prog.java:5)
+</code></pre>
+
+</body></html>
+
+<h2><span style="text-decoration: underline;">Java 15</span></h2>
+<h3 id="j151">Sealed Classes (Preview)</h3>
+<p>Restricts a class to be inherited only by certain Classes</p>
+
+<pre><code>
+// Shape can be inherited only by Circle and Rectangle
+public abstract sealed class Shape permits Circle, Rectangle {
+    ...
+}
+
+public Circle extends Shape {
+    ...
+}
+
+public Rectangle extends Shape {
+    ...
+}
+
+// Error can't be inherited because is sealed to Circle and Rectangle
+public Polygon extends Shape {
+    ...
+}
+</code></pre>
