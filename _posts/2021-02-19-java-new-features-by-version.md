@@ -93,7 +93,15 @@ description: Java 8 to 17 new features
 <td style="width: 500px; height: 221.5px;" valign="top">
 <h2>Java 15</h2>
 <ul>
-<li><a href="#j">TBD</a></li>
+<li><a href="#j151">Sealed Classes (Preview)</a></li>
+<li><a href="https://jfeatures.com/blog/HiddenClass#:~:text=Classes%20that%20cannot%20be%20used,linked%20against%20by%20other%20classes">Hidden Classes</a></li>
+<li><a href="#j131">Text Blocks (final)</a></li>
+<li><a href="#j141">Records (Second Preview)</a></li>
+<li><a href="#j142">Pattern Matching for instanceof (Second Preview)</a></li>
+<li>Edwards-Curve Digital Signature Algorithm (EdDSA)</li>
+<li>ZGC & Shenandoah Garbage Collector</li>
+<li>Foreign-Memory Access API (Second Incubator)</li>
+<li>Deprecation of some features with no impact to the programmer</li>
 </ul>
 <td style="width: 500px; height: 221.5px;" valign="top">
 <h2>Java 16</h2>
@@ -674,3 +682,27 @@ Exception in thread "main" java.lang.NullPointerException:
 </code></pre>
 
 </body></html>
+
+<h2><span style="text-decoration: underline;">Java 15</span></h2>
+<h3 id="j151">Sealed Classes (Preview)</h3>
+<p>Restricts a class to be inherited only by certain Classes</p>
+
+<pre><code>
+// Shape can be inherited only by Circle and Rectangle
+public abstract sealed class Shape permits Circle, Rectangle {
+    ...
+}
+
+public Circle extends Shape {
+    ...
+}
+
+public Rectangle extends Shape {
+    ...
+}
+
+// Error can't be inherited because is sealed to Circle and Rectangle
+public Polygon extends Shape {
+    ...
+}
+</code></pre>
