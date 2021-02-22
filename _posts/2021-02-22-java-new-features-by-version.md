@@ -76,6 +76,7 @@ description: Java 8 to 17 new features
 <li>ZGC: Uncommit Unused Memory</li>
 <li>Dynamic CDS Archives</li>
 </ul>
+</td>
 <td style="width: 500px; height: 221.5px;" valign="top">
 <h2>Java 14</h2>
 <ul>
@@ -88,8 +89,8 @@ description: Java 8 to 17 new features
 <li>Foreign-Memory Access API (Incubator)</li>
 <li>Non-Volatile Mapped Byte Buffers</li>
 <li>JFR Event Streaming</li>
-
 </ul>
+</td>
 <td style="width: 500px; height: 221.5px;" valign="top">
 <h2>Java 15</h2>
 <ul>
@@ -103,6 +104,7 @@ description: Java 8 to 17 new features
 <li>Foreign-Memory Access API (Second Incubator)</li>
 <li>Deprecation of some features with no impact to the programmer</li>
 </ul>
+</td>
 <td style="width: 500px; height: 221.5px;" valign="top">
 <h2>Java 16</h2>
 <ul>
@@ -114,6 +116,7 @@ description: Java 8 to 17 new features
 <li>Elastic Metaspace</li>
 <li>Windows/AArch64 Port</li>
 </ul>
+</td>
 <td style="width: 500px; height: 221.5px;" valign="top">
 <h2>Java 17 (TBD)</h2>
 <ul>
@@ -542,9 +545,9 @@ public class mybenchmark {
 @Benchmark
 public void testMethod() {}
 }
-</pre></code>
+</code></pre>
 
-<h2><span style="text-decoration: underline;">Java 13</span></h2>
+<h2 style="text-decoration: underline;">Java 13</h2>
 <h3 id="j131">Text Blocks (Preview)</h3>
 <p>Multiline text definition similar to Python using """..."""</p>
 <pre><code>
@@ -687,8 +690,6 @@ Exception in thread "main" java.lang.NullPointerException:
    at Prog.main(Prog.java:5)
 </code></pre>
 
-</body></html>
-
 <h2><span style="text-decoration: underline;">Java 15</span></h2>
 <h3 id="j151">Sealed Classes (Preview)</h3>
 <p>Restricts a class to be inherited only by certain Classes</p>
@@ -712,3 +713,6 @@ public Polygon extends Shape {
     ...
 }
 </code></pre>
+
+
+</body></html>
