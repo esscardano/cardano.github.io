@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Java [8..17] new features
-date: 2019-08-14
+date: 2021-02-22
 author: e.caceres
 categories: java
 description: Java 8 to 17 new features
@@ -713,6 +713,3 @@ public Polygon extends Shape {
     ...
 }
 </code></pre>
-
-
-</body></html>
